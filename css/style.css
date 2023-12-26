@@ -1,0 +1,274 @@
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    background: #fff;
+    color:#333;
+    line-height: 1.6;
+    font-size: 1.6;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+h1,h2{
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+p{
+    margin: 1rem 0;
+}
+
+img{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* navbar */
+
+.navbar{
+    display: flex;
+    align-items: center;
+
+    /* Logo ve yazı solda linkler sağda olması için space-between veriyoruz. */
+    justify-content: space-between;
+
+    /* Verdiğimiz renk "h" etiketleri  için geçerli olur. "a" etiketlerine inherit edilemez. */
+    background-color: var(--dark);
+    opacity: 0.8;
+    color: #fff;
+
+    /* Position:fixed dediğimizde içerik kadar yer kaplar, o yüzden width:100 yapıyoruz.  */
+    position: fixed; 
+    width: 100%;
+
+    height: 70px;
+    top:0;
+
+    /* Yukarıda html:10px olduğu için 3rem=30px */
+    padding: 0 3rem; 
+}
+
+.navbar a{
+    color: #fff;
+    padding: 1rem 2rem;
+    margin: 0 .5rem;
+}
+
+.navbar a:hover{
+    border-bottom: 2px solid var(--warning);
+}
+
+.navbar ul{
+    /* linkler yan yana gelir ve içerik kadar yer kaplar. */
+    display: flex; 
+    
+}
+
+.navbar .brand{
+    font-weight: 400;
+}
+
+.navbar .h1{
+    font-size: 3rem;
+}
+
+.navbar span{
+    color: var(--warning);
+}
+
+/* header */
+.main-header{
+    background-image:url('../img/bg-1.jpeg');
+
+    /* Resmin yatayda ve dikeyde tekrarlanmasını kapattık. */
+    background-repeat:no-repeat ;
+
+    /* İçerik kendini biraz kıssa daa tam olarak yerleştirsin. */
+    background-size: cover;
+    background-position:center ;
+
+    /* Kullanıcının gördüğü alanın tamamını kaplasın. */
+    height: 100vh;
+    color:#fff;
+    position: relative;
+}
+
+
+
+/*.main-header .blog: main-header altındaki blog class'ına sahip eleman.
+
+.main-header.blog olursa: main-header elementlerinden class değeri olan elementi seç demek oluyor.
+ BOŞLUK OLUP OLMAMASI ÖNEMLİ
+*/
+.main-header.blog{
+    /* Main-header da verdiğimiz image kısmını ezip yeni resim veriyoruz. */
+    background-image:url(../img/bg-2.jpeg) ;
+
+/* Main-header da verdiğimiz height kısmını ezip yeni height veriyoruz. */
+    height: 50vh;
+}
+
+
+
+.main-header .content{
+    display: flex;
+
+    /* İçeriklerin alt alta gelmesini sağlamak için. */
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Header içinde ortalamak istediğimiz için yüksekliği veriyoruz. Aksi halde kendi içinde ortalar. Yani içinde bulunduğu alan kadar yer kapla demiş olduk.*/
+    height: 100%;
+    
+
+}
+
+/* Main-header öncesinde element oluşturuyoruz. Opaklık vererek yazılarımız ve linklerimizin öne çıkmasını sağlıyoruz. */
+.main-header::before{
+    content: '';
+
+    /* Main-header relative olduğu için ona bağlı konumlanacak. */
+    position: absolute;
+
+    /* Sol üstten başlasın yüksekliği ve genişliği tamamen kaplasın */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Saydam bir zemin oluşturduk. */
+    background: rgba(0,0,0, 0.6);
+
+    /* display: none; */
+        
+    
+}
+
+
+/* main-header içindeki elemanlar öne çıksın istiyoruz. */
+.main-header *{
+    z-index: 5;
+}
+
+.main-header .content h1{
+    font-size: 5.5rem;
+}
+
+.main-header .content p{
+    font-size: 2.3rem;
+
+    /* Yazı çoğalırsa kaplayacağı alan belirli olsun diye verdik. */
+    max-width: 60rem;
+
+    margin: 2rem 0 3rem;
+}
+
+/* icons */
+.icons{
+    padding: 30px;
+}
+
+.icons h3{
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.icons i{
+    background-color: var(--primary);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+/* about */
+.about{
+    color: #fff;
+}
+
+.about h2{
+    font-size:4rem;
+    font-weight: 400;
+}
+
+.about p{
+    margin:2rem 0;
+    
+}
+
+/* gallery */
+.gallery img:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.4s;
+}
+
+
+/* cards */
+.card{
+    color: #fff;
+    font-weight: 700;
+}
+
+.card-body{
+    padding: 2rem;
+}
+
+.teams img{
+    border-radius: 50%;
+}
+
+.teams img:hover{
+    opacity: 0.7;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+    html{
+        font-size: 9px;
+    }
+
+    .navbar{
+        /*Mobilde navbar alt alta gelsin. */
+        flex-direction: column;
+        height: 120px;
+        padding:20px;
+        /* Ekran küçüldüğünde home,about vb. tıklanmıyordu o yüzden z-index:6; yaptım. */
+        z-index: 6;
+    }
+    .navbar a{
+        padding: 10px;
+        margin: 0 3px;
+    }
+    .teams img{
+        /* Ekran küçülünce biraz daha az yer kaplasın. */
+    width: 70%;
+    }
+}
